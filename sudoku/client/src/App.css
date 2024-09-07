@@ -1,0 +1,180 @@
+/* Import Noto Sans Japanese from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+  --color1: #f0f0f0;
+  --color1-dark: #d0d0d0;
+  --color1-darker: #a0a0a0;
+  --color2: #f0f0f0;
+  --color2-dark: #404040;
+  --color2-darker: #000000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--color2);
+  padding-top: 80px; /* Account for header height */
+}
+
+.App-header {
+  background-color: var(--color1);
+  padding: 20px 8px;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.App-header h1 {
+  color: var(--color2-darker);
+  font-size: 36px;
+}
+
+.sudoku-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 80px); /* Height minus header height */
+}
+
+.Sudoku {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color2);
+  padding: 20px;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 40px;
+  outline: none;
+  background-color: var(--color1);
+  border: 2px solid var(--color2-darker);
+}
+
+.tile:focus {
+  background-color: var(--color1-dark);
+  color: var(--color2-darker);
+  outline: none;
+}
+
+.taken {
+  background-color: var(--color1-dark);
+  color: var(--color2-darker);
+}
+
+.initial {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 40px;
+  background-color: var(--color1-darker);
+  border: 2px solid var(--color2-darker);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  border: 4px solid var(--color2-darker);
+  background-color: var(--color2);
+}
+
+.interface {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-interface input {
+  width: 100%;
+  max-width: 250px;
+  height: 40px;
+  text-align: center;
+  font-size: 24px;
+  outline: none;
+  color: var(--color2-dark);
+  background-color: var(--color1);
+  border: 2px solid var(--color2-dark);
+  margin-bottom: 20px;
+}
+
+.action-interface {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: var(--color1);
+  padding: 10px 20px;
+  border: 2px solid var(--color2-dark);
+  color: var(--color2-dark);
+  font-size: 18px;
+  transition: 0.1s all ease-in-out;
+  max-width: 150px; /* Reduced max width to prevent large buttons */
+  flex: 1 1 45%; /* Ensure buttons take up no more than 45% of the row */
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--color1-dark);
+}
+
+.language-button {
+  background-color: var(--color1);
+  padding: 8px 20px;
+  border: 2px solid var(--color2-dark);
+  color: var(--color2-dark);
+  font-size: 16px;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  transition: 0.1s all ease-in-out;
+}
+
+.language-button:hover {
+  cursor: pointer;
+  background-color: var(--color1-dark);
+}
+
+.timer {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  font-size: 24px;
+  color: var(--color2-darker);
+  padding: 8px 20px;
+  border: 2px solid var(--color2-dark);
+}
+
+.error {
+  background-color: #ffcccc; /* Light red background for errors */
+  color: var(--color2-darker); /* Keep text color consistent */
+}
